@@ -93,16 +93,17 @@ def recognize_user():
             if confidence < 50:
                 name = os.listdir(USER_DIR)[label]
                 mark_attendance(name)
+                return
             else:
                 name = "Unknown"
 
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            cv2.putText(frame, name, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+        #     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        #     cv2.putText(frame, name, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
-        cv2.imshow("Recognition", frame)
+        # cv2.imshow("Recognition", frame)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
 
     cap.release()
     cv2.destroyAllWindows()
